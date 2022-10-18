@@ -1,0 +1,14 @@
+version: '3'
+services:
+  basic-nest-app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: '${APP_NAME}_APP'
+    image: basic-nest-image
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    ports:
+      - ${APP_PORT}:${APP_PORT}
